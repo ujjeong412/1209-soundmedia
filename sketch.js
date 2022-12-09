@@ -29,17 +29,17 @@ function setup()
     button4.mousePressed(togglePlaying4);
 
     button10 = createButton("-5(s)");
-    button10.mousePressed(togglePlaying3);
+    button10.mousePressed(togglePlaying10);
 
     button9 = createButton("+5(s)");
-    button9.mousePressed(togglePlaying3);
+    button9.mousePressed(togglePlaying9);
 
 
     button3 = createButton("+10(s)");
     button3.mousePressed(togglePlaying3);
 
     button11 = createButton("+15(s)");
-    button11.mousePressed(togglePlaying3);
+    button11.mousePressed(togglePlaying11);
 
     button5 = createButton("Volume Up");
     button5.mousePressed(togglePlaying5);
@@ -134,9 +134,9 @@ function togglePlaying1(){
         a = a-0.1;
         musicFile.setVolume(a);
         console.log("yj"+a);
-        // if(a<=0){
-        //     a=0;
-        // }
+        if(a<=0){
+            a=0;
+        }
     }
     
     if(music ===2){

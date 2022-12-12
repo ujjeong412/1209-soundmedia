@@ -11,6 +11,8 @@ let amp;
 var rB;
 let music;
 
+let vol; //신규 변수
+
 function setup()
 {
     createCanvas(640, 480);
@@ -54,13 +56,14 @@ function setup()
     button8.mousePressed(togglePlaying8);
 
     amp = new p5.Amplitude();
+    vol =0.5; //신규 변수
 }
 function togglePlaying1(){
     if(music === 1){
         if(!musicFile.isPlaying()){
             // musicFile.jump(200);
             // rB=musicFile.reverseBuffer();
-            musicFile.setVolume(0.5);
+            musicFile.setVolume(vol); //처음에 숫자로 세팅하니까 더하기 빼기가 동작을 못함
             musicFile.rate(1);
             musicFile.play();
             button.html('pause');
@@ -73,7 +76,7 @@ function togglePlaying1(){
         if(!musicFile2.isPlaying()){
             // rB=musicFile.reverseBuffer();
             // musicFile2.jump(200);
-            musicFile.setVolume(0.5);
+            musicFile.setVolume(vol);//처음에 숫자로 세팅하니까 더하기 빼기가 동작을 못함
             musicFile.rate(1);
             musicFile2.play();
             button.html('pause');
@@ -116,34 +119,25 @@ function togglePlaying1(){
     }
  }
 
- function togglePlaying5(){
-    if(music ===1){
-        a = a+0.1;
-        
-        musicFile.setVolume(a);
-    }
-    if(music ===2){
-        b = b+0.1;
-        musicFile2.setVolume(b);
-    }
-
- }
- function togglePlaying6(){
-    if(music ===1){
-        
-        a = a-0.1;
-        musicFile.setVolume(a);
-        console.log("yj"+a);
-        if(a<=0){
-            a=0;
-        }
-    }
+ function togglePlaying5(){ //이 버튼이 그냥 전체 볼룸을 컨트롤 하게 바꿔줌
     
-    if(music ===2){
-        b = b-0.1;
-        musicFile2.setVolume(b);
+    vol = vol + 0.1; //볼륨 더하기
+    if(vol >= 1){  //볼륨이 1이 넘어가면 그냥 몽땅 1로 처리
+        vol = 1;
     }
+    console.log(vol);
+    musicFile.setVolume(vol); //음악파일 둘다 변수 vol이 관여, 이 경우 음악을 바꾸면 원래 음악의 볼륨이 그대로 적용됨
+    musicFile2.setVolume(vol); //음악파일 둘다 변수 vol이 관여, 이 경우 음악을 바꾸면 원래 음악의 볼륨이 그대로 적용됨
+ }
+ function togglePlaying6(){ //이 버튼이 그냥 전체 볼룸을 컨트롤 하게 바꿔줌
 
+    vol = vol - 0.1; //볼륨 빼기
+    if(vol <= 0){   //볼륨이 0이 넘어가면 그냥 몽땅 0로 처리
+        vol = 0;
+    }
+    console.log(vol);
+    musicFile.setVolume(vol); //음악파일 둘다 변수 vol이 관여, 이 경우 음악을 바꾸면 원래 음악의 볼륨이 그대로 적용됨
+    musicFile2.setVolume(vol); //음악파일 둘다 변수 vol이 관여, 이 경우 음악을 바꾸면 원래 음악의 볼륨이 그대로 적용됨
  }
 
  function togglePlaying7(){

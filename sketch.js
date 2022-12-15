@@ -7,9 +7,15 @@ let button4
 var jumpButton;
 var a=0;
 var b=0;
+var c=0;
+var d=0;
 let amp;
 var rB;
 let music;
+
+let vol;
+
+
 
 function setup()
 {
@@ -54,13 +60,14 @@ function setup()
     button8.mousePressed(togglePlaying8);
 
     amp = new p5.Amplitude();
+    vol = 0.5;
 }
 function togglePlaying1(){
     if(music === 1){
         if(!musicFile.isPlaying()){
             // musicFile.jump(200);
             // rB=musicFile.reverseBuffer();
-            musicFile.setVolume(0.5);
+            musicFile.setVolume(vol);
             musicFile.rate(1);
             musicFile.play();
             button.html('pause');
@@ -73,7 +80,7 @@ function togglePlaying1(){
         if(!musicFile2.isPlaying()){
             // rB=musicFile.reverseBuffer();
             // musicFile2.jump(200);
-            musicFile.setVolume(0.5);
+            musicFile.setVolume(vol);
             musicFile.rate(1);
             musicFile2.play();
             button.html('pause');
@@ -116,56 +123,47 @@ function togglePlaying1(){
     }
  }
 
+ 
  function togglePlaying5(){
-    if(music ===1){
-        a = a+0.1;
-        
-        musicFile.setVolume(a);
+    vol = vol + 0.1;
+    if(vol >= 1){
+        vol = 1;
     }
-    if(music ===2){
-        b = b+0.1;
-        musicFile2.setVolume(b);
-    }
-
+    console.log(vol);
+    musicFile.setVolume(vol);
+    musicFile2.setVolume(vol);
  }
- function togglePlaying6(){
-    if(music ===1){
-        
-        a = a-0.1;
-        musicFile.setVolume(a);
-        console.log("yj"+a);
-        if(a<=0){
-            a=0;
-        }
-    }
-    
-    if(music ===2){
-        b = b-0.1;
-        musicFile2.setVolume(b);
-    }
 
+ function togglePlaying6(){
+    vol = vol - 0.1;
+    if(vol <= 0){
+        vol = 0;
+    }
+    console.log(vol);
+    musicFile.setVolume(vol);
+    musicFile2.setVolume(vol);
  }
 
  function togglePlaying7(){
     if(music ===1){
-        a = a+1;
-        musicFile.rate(a);
+        c = c+1;
+        musicFile.rate(c);
     }
     if(music ===2){
-        b = b+1;
-        musicFile2.rate(b);
+        d = d+1;
+        musicFile2.rate(d);
     }
 
  }
 
  function togglePlaying8(){
     if(music ===1){
-        a = a-1;
-        musicFile.rate(a);
+        c = c-1;
+        musicFile.rate(c);
     }
     if(music ===2){
-        b = b-1;
-        musicFile2.rate(b);
+        d = d-1;
+        musicFile2.rate(d);
     }
 
  }

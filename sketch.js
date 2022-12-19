@@ -3,8 +3,14 @@ let musicFile2;
 let button;
 let button2;
 let button3;
-let button4
-var jumpButton;
+let button4;
+let button5;
+let button6;
+let button7;
+let button8;
+let button9;
+let button10;
+let button11;
 var a=0;
 var b=0;
 var c=0;
@@ -146,11 +152,11 @@ function togglePlaying1(){
 
  function togglePlaying7(){
     if(music ===1){
-        c = c+1;
+        c = c+0.5;
         musicFile.rate(c);
     }
     if(music ===2){
-        d = d+1;
+        d = d+0.5;
         musicFile2.rate(d);
     }
 
@@ -158,11 +164,11 @@ function togglePlaying1(){
 
  function togglePlaying8(){
     if(music ===1){
-        c = c-1;
+        c = c-0.5;
         musicFile.rate(c);
     }
     if(music ===2){
-        d = d-1;
+        d = d-0.5;
         musicFile2.rate(d);
     }
 

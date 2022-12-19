@@ -13,8 +13,8 @@ let button10;
 let button11;
 var a=0;
 var b=0;
-var c=0;
-var d=0;
+let c=1;
+let d=1;
 let amp;
 var rB;
 let music;
@@ -74,7 +74,7 @@ function togglePlaying1(){
             // musicFile.jump(200);
             // rB=musicFile.reverseBuffer();
             musicFile.setVolume(vol);
-            musicFile.rate(1);
+            musicFile.rate(c);
             musicFile.play();
             button.html('pause');
         }else{
@@ -87,7 +87,7 @@ function togglePlaying1(){
             // rB=musicFile.reverseBuffer();
             // musicFile2.jump(200);
             musicFile.setVolume(vol);
-            musicFile.rate(1);
+            musicFile.rate(d);
             musicFile2.play();
             button.html('pause');
         }else{
